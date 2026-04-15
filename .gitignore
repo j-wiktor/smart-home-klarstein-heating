@@ -229,4 +229,5 @@ zigbee2mqtt_data/configuration.yaml
 # Systemowe
 .DS_Store
 __pycache__/
-*.log
+*.logconfig/home-assistant_v2.db*
+zigbee2mqtt_data/state.json
