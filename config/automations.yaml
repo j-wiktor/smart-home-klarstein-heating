@@ -1,0 +1,66 @@
+- id: '1774176276481'
+  alias: termostat salon
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - sensor.temperature_humidity_sensor_68ff_temperatura
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.temperature_humidity_sensor_68ff_temperatura
+        below: input_number.temp_min_salon
+      sequence:
+      - action: climate.turn_on
+        data: {}
+        target:
+          device_id: 0d2abc1853b502345dc869e5ea84cf04
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.temperature_humidity_sensor_68ff_temperatura
+        above: input_number.temp_max_salon
+      sequence:
+      - device_id: 0d2abc1853b502345dc869e5ea84cf04
+        domain: climate
+        entity_id: 99a73949ae1b7ffed7bb4fb4b6481867
+        type: set_hvac_mode
+        hvac_mode: 'off'
+  mode: single
+- id: '1776023870766'
+  alias: temp_min_sypialnia
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_number.temp_min_sypialnia
+  conditions: []
+  actions:
+  - action: mqtt.publish
+    metadata: {}
+    data:
+      evaluate_payload: false
+      qos: 0
+      retain: true
+      topic: homeassistant/sypialnia/temp_min/state
+      payload: '{{ states(''input_number.temp_min_sypialnia'') }}'
+  mode: single
+- id: '1776024008076'
+  alias: temp_max_sypialnia
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_number.temp_max_sypialnia
+  conditions: []
+  actions:
+  - action: mqtt.publish
+    metadata: {}
+    data:
+      evaluate_payload: false
+      qos: 0
+      retain: true
+      topic: homeassistant/sypialnia/temp_max/state
+      payload: '{{ states(''input_number.temp_max_sypialnia'') }}'
+  mode: single

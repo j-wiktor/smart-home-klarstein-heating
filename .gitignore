@@ -205,3 +205,28 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+#---------------------------- My data for smart home ----------------------------
+
+# Base data and trash
+influxdb_data/
+mosquitto_data/
+mosquitto_log/
+zigbee2mqtt_data/log/
+
+# Config files
+config/.storage/
+config/home-assistant_v2.db
+config/home-assistant.log
+config/secrets.yaml
+config/ip_bans.yaml
+
+# Zigbee2MQTT data
+zigbee2mqtt_data/secret.yaml
+zigbee2mqtt_data/database.db
+zigbee2mqtt_data/configuration.yaml
+
+# Systemowe
+.DS_Store
+__pycache__/
+*.log
