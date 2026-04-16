@@ -3,6 +3,35 @@
 ## Project Overview
 An automated heating management system designed for **Klarstein Wonderwall** and other infrared heating units from this company. By bypassing producer controll modules you can apply this solutions to any heating plug powered heaters. This project focuses on building a solid data pipeline to monitor environmental conditions and optimize energy consumption using Python and Home Automation tools.
 
+## 🏠 Room Configurations & Control Logic
+
+### 🛋️ Living Room ("Salon")
+* **Heater:** Klarstein Wonderwall 1200W (Tuya Wi-Fi). 
+    * *Note:* Built-in sensor is damaged; system uses external telemetry for control.
+* **Sensor:** Xiaomi LYWSD03MMC (Bluetooth).
+* **Power Monitor:** Shelly Plug S Gen3 (Wi-Fi) - *Telemetry only*.
+* **Logic:** Heater is set to a static 38°C (max). Power state is managed via Home Assistant software commands based on external sensor data. Python scripts adjust thresholds for 22:00-06:00 energy saving.
+
+### 🛏️ Bedroom ("Sypialnia")
+* **Heater:** Klarstein Wonderwall 600W.
+* **Bypass:** Proprietary wired controller removed; hardware-bypassed via **WAGO** direct connection.
+* **Sensor:** Sonoff Zigbee LCD (SNZB-02D).
+* **Actuator:** Shelly Plug S Gen3 (Wi-Fi).
+* **Logic:** "Always-on" hardware state. Total control is outsourced to the Shelly/Sonoff integration. Python script decrases the temperature during night (22:00 - 6:00)
+
+### 🧪 Workroom ("Pracownia")
+* **Heater:** Klarstein Wonderwall 600W.
+* **Bypass:** 2.4GHz RF remote/thermostat bypassed via **WAGO** direct connection.
+* **Sensor:** Sonoff Zigbee LCD (SNZB-02D).
+* **Actuator:** Shelly Plug S Gen3 (Wi-Fi).
+* **Logic:** Same as Bedroom. Python script for night. 
+
+### 🚀 Roadmap: Future Expansion
+- **Kitchen:** Integration of Klarstein 600W (WAGO bypass planned).
+- **Bathroom:** Integration of 1500W Oil Heater using high-load Shelly relays.
+
+
+
 **Target Role:** Transitioning into **Data Engineering** by applying cost-optimization strategies, energy efficiency logic, and real-time data processing. Learning Python, Linux and Data on real-life enviorment. 
 
 ## 💡 Engineering Decisions: Unified Control Strategy
