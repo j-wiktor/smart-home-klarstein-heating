@@ -1,3 +1,5 @@
+
+
 @service
 @time_trigger("cron(0 22 * * *)")
 def set_night_mode():

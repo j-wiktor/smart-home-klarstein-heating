@@ -231,3 +231,11 @@ zigbee2mqtt_data/configuration.yaml
 __pycache__/
 *.logconfig/home-assistant_v2.db*
 zigbee2mqtt_data/state.json
+
+# Home Assistant database and logs
+home-assistant_v2.db*
+home-assistant.log*
+.storage/
+.cloud/
+.cache/
+zigbee2mqtt_data/
